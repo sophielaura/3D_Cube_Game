@@ -1,0 +1,88 @@
+<!DOCTYPE>
+<html>
+   <head>
+     <meta charset = "utf-8">
+	 <style type="text/css">
+	     @import url(https://fonts.googleapis.com/css?family=Oswald:400,300);
+         body { background: #333;}
+         .center { display: block;
+                   position: relative;
+                   width: 200px;
+                   height: 200px;
+                   cursor: pointer;
+                   background: url(origin.jpg);
+                   background-size: 101%;
+                   background-position: top left;
+                   border-radius: 100%;
+                   margin: 100px auto;
+                   -webkit-transition: all 0.5s cubic-bezier(0.55, 0, 0.1, 1);
+                   transition: all 0.5s cubic-bezier(0.55, 0, 0.1, 1);
+                   box-shadow: 0px 5px 10px #000;}
+         .center:hover { box-shadow: 0px 5px 20px #000;
+                         background-size: 115%;}
+         .center:hover .outside { -webkit-transform: rotate(-45deg) translate(0px) rotate(-315deg);
+                                  transform: rotate(-45deg) translate(0px) rotate(-315deg);
+                                  background: rgba(16, 115, 96, 0.5);
+                                  width: 200px;
+                                  letter-spacing: 10px;
+                                  padding-left: 10px;
+                                  line-height: 200px;
+                                  height: 200px;
+                                  margin-top: -100px;
+                                  margin-left: -100px;
+                                  -webkit-transition: all 0.5s cubic-bezier(0.55, 0, 0.1, 1), letter-spacing 1.5s ease-out;
+                                  transition: all 0.5s cubic-bezier(0.55, 0, 0.1, 1), letter-spacing 1.5s ease-out;}
+         .center .outside { display: block;
+                            position: absolute;
+                            line-height: 100px;
+                            text-align: center;
+                            letter-spacing: 4px;
+                            padding-left: 4px;
+                            box-sizing: border-box;
+                            font-weight: 300;
+                            color: #fff;
+                            font-family: Oswald;
+                            border-radius: 100%;
+                            width: 100px;
+                            height: 100px;
+                            background: #16A085;
+                            left: 50%;
+                            top: 50%;
+                            margin-top: -50px;
+                            margin-left: -50px;
+                            -webkit-transform: rotate(-135deg) translate(-100px) rotate(135deg);
+                            transform: rotate(-135deg) translate(-100px) rotate(135deg);
+                            box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.5);
+                            -webkit-transition: all 0.5s cubic-bezier(0.55, 0, 0.1, 1);
+                            transition: all 0.5s cubic-bezier(0.55, 0, 0.1, 1);}
+         .center .outside span { letter-spacing: 0;}
+	 </style>
+	 <script type="text/javascript">
+	        (function() {
+                   'use strict';
+                    var $message = $('#message');
+    
+            $message.on('mouseenter', function(){
+                   setTimeout(function(){
+					  $message.find('.outside').html('ENTER');
+                                        },200);
+                     });
+  
+               $message.on('mouseleave', function(){
+                      setTimeout(function(){
+                   $message.find('.outside').html('WELCOME');
+                                      },250);
+                         });
+              }());
+			  
+			  function redirect(){ 
+	         window.location.href = 'level_1.html'; // other page 
+	             }
+	 </script>
+   </head>
+   <body>
+     <div class="center" id="message">
+	  <input type='button' value='PLAY' class="outside" onclick='redirect();' /> 
+</div>
+   </body>
+</html>

@@ -1,0 +1,868 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta charset="utf-8">
+<title>3D立方體</title>
+<meta name="Keywords" content="">
+<meta name="Description" content="">
+<meta name="author" content="翻越這牆">
+<link rel="stylesheet" href="C:\Users\sophi_000\Documents\GitHub\sophielaura.github.io\.git\flipclock.css">
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+	<script src="C:\Users\sophi_000\Documents\GitHub\sophielaura.github.io\.git\flipclock.js"></script>
+	<link href="C:\Users\sophi_000\Documents\GitHub\sophielaura.github.io\.git\alertify.core.css" rel="stylesheet">  
+	<link href="C:\Users\sophi_000\Documents\GitHub\sophielaura.github.io\.git\alertify.default.css" rel="stylesheet">  
+	<script src="C:\Users\sophi_000\Documents\GitHub\sophielaura.github.io\.git\alertify.min.js"></script>	
+<style type="text/css">
+/*重置{*/
+* { padding: 0; margin: 0; }img{border:0;}li{list-style:none;}
+/*}重置*/
+
+	li				{width:36vh;
+					 height:36vh;}
+	.all			{float:right;}
+	.box			{margin-top:0vh;
+					 margin-right:6vh;}
+					 
+	input{width:50px;height:30px;cursor:pointer;}
+	.button input:nth-child(1){right:13vh;top:-38vh;position:absolute;}    /*按鈕位置(上)*/
+	.button input:nth-child(2){right:-2vh;top:-22.75vh;position:absolute;}				/*右*/
+	.button input:nth-child(3){right:27vh;top:-22.75vh;position:absolute;}				/*左*/
+	.button input:nth-child(4){right:13vh;top:-9vh;position:absolute;}			/*下*/
+	
+	.button{width:200px;margin:20px auto;position:absolute;}
+	
+	
+	.reset input{width:10vh;height:5vh;left:48%;top:90vh;font-size:3vh;position:absolute;}
+	
+	img			{width:70vh;
+				 height:70vh;}	
+	
+	.pic		{width:70vh;
+				 height:70vh;
+				 float:left;
+				 margin-top:0vh;
+				 margin-left:8vh;}	
+	
+	
+
+ul {width:25vh;height:25vh;-webkit-transform-style:preserve-3d;}  
+	
+li{width:25vh;height:25vh;position:absolute;text-align:center;line-height:200px;font-size:80px;font-weight:bold;color:#fff;}
+
+.cube1 li:nth-child(1){background-image:url(1.jpeg);background-repeat:no-repeat;background-size:25vh 25vh;-webkit-transform:rotateX(90deg)  rotateY(0deg) translateZ(12.5vh);}  /*固定每一面正方體 上下左右前後*/
+.cube1 li:nth-child(2){background-image:url(2.jpeg);background-repeat:no-repeat;background-size:25vh 25vh;-webkit-transform:rotateX(-90deg) rotateY(0deg) translateZ(12.5vh);}
+.cube1 li:nth-child(3){background-image:url(3.jpeg);background-repeat:no-repeat;background-size:25vh 25vh;-webkit-transform:rotateX(0deg)   rotateY(90deg) translateZ(12.5vh);}
+.cube1 li:nth-child(4){background-image:url(4.jpeg);background-repeat:no-repeat;background-size:25vh 25vh;-webkit-transform:rotateX(0deg)   rotateY(270deg) translateZ(12.5vh);}
+.cube1 li:nth-child(5){background-image:url(9.jpeg);background-repeat:no-repeat;background-size:25vh 25vh;-webkit-transform:rotateX(0deg)   rotateY(0deg)  translateZ(-12.5vh);}
+.cube1 li:nth-child(6){background-image:url(7.jpeg);background-repeat:no-repeat;background-size:25vh 25vh;-webkit-transform:rotateX(0deg)   rotateY(0deg)  translateZ(12.5vh) ;}
+
+.cube2 li:nth-child(1){background-image:url(7.jpeg);background-repeat:no-repeat;background-size:25vh 25vh;-webkit-transform:rotateX(90deg)  rotateY(0deg) translateZ(12.5vh);}  /*固定每一面正方體*/
+.cube2 li:nth-child(2){background-image:url(5.jpeg);background-repeat:no-repeat;background-size:25vh 25vh;-webkit-transform:rotateX(-90deg) rotateY(0deg) translateZ(12.5vh);}
+.cube2 li:nth-child(3){background-image:url(6.jpeg);background-repeat:no-repeat;background-size:25vh 25vh;-webkit-transform:rotateX(0deg)   rotateY(90deg) translateZ(12.5vh);}
+.cube2 li:nth-child(4){background-image:url(1.jpeg);background-repeat:no-repeat;background-size:25vh 25vh;-webkit-transform:rotateX(0deg)   rotateY(270deg) translateZ(12.5vh);}
+.cube2 li:nth-child(5){background-image:url(8.jpeg);background-repeat:no-repeat;background-size:25vh 25vh;-webkit-transform:rotateX(0deg)   rotateY(0deg)  translateZ(-12.5vh);}
+.cube2 li:nth-child(6){background-image:url(4.jpeg);background-repeat:no-repeat;background-size:25vh 25vh;-webkit-transform:rotateX(0deg)   rotateY(0deg)  translateZ(12.5vh) ;}
+
+.cube3 li:nth-child(1){background-image:url(4.jpeg);background-repeat:no-repeat;background-size:25vh 25vh;-webkit-transform:rotateX(90deg)  rotateY(0deg) translateZ(12.5vh);}  /*固定每一面正方體*/
+.cube3 li:nth-child(2){background-image:url(6.jpeg);background-repeat:no-repeat;background-size:25vh 25vh;-webkit-transform:rotateX(-90deg) rotateY(0deg) translateZ(12.5vh);}
+.cube3 li:nth-child(3){background-image:url(9.jpeg);background-repeat:no-repeat;background-size:25vh 25vh;-webkit-transform:rotateX(0deg)   rotateY(90deg) translateZ(12.5vh);}
+.cube3 li:nth-child(4){background-image:url(7.jpeg);background-repeat:no-repeat;background-size:25vh 25vh;-webkit-transform:rotateX(0deg)   rotateY(270deg) translateZ(12.5vh);}
+.cube3 li:nth-child(5){background-image:url(3.jpeg);background-repeat:no-repeat;background-size:25vh 25vh;-webkit-transform:rotateX(0deg)   rotateY(0deg)  translateZ(-12.5vh);}
+.cube3 li:nth-child(6){background-image:url(5.jpeg);background-repeat:no-repeat;background-size:25vh 25vh;-webkit-transform:rotateX(0deg)   rotateY(0deg)  translateZ(12.5vh) ;}
+
+.cube4 li:nth-child(1){background-image:url(5.jpeg);background-repeat:no-repeat;background-size:25vh 25vh;-webkit-transform:rotateX(90deg)  rotateY(0deg) translateZ(12.5vh);}  /*固定每一面正方體*/
+.cube4 li:nth-child(2){background-image:url(6.jpeg);background-repeat:no-repeat;background-size:25vh 25vh;-webkit-transform:rotateX(-90deg) rotateY(0deg) translateZ(12.5vh);}
+.cube4 li:nth-child(3){background-image:url(7.jpeg);background-repeat:no-repeat;background-size:25vh 25vh;-webkit-transform:rotateX(0deg)   rotateY(90deg) translateZ(12.5vh);}
+.cube4 li:nth-child(4){background-image:url(4.jpeg);background-repeat:no-repeat;background-size:25vh 25vh;-webkit-transform:rotateX(0deg)   rotateY(270deg) translateZ(12.5vh);}
+.cube4 li:nth-child(5){background-image:url(9.jpeg);background-repeat:no-repeat;background-size:25vh 25vh;-webkit-transform:rotateX(0deg)   rotateY(0deg)  translateZ(-12.5vh);}
+.cube4 li:nth-child(6){background-image:url(2.jpeg);background-repeat:no-repeat;background-size:25vh 25vh;-webkit-transform:rotateX(0deg)   rotateY(0deg)  translateZ(12.5vh) ;}
+
+.cube5 li:nth-child(1){background-image:url(6.jpeg);background-repeat:no-repeat;background-size:25vh 25vh;-webkit-transform:rotateX(90deg)  rotateY(0deg) translateZ(12.5vh);}  /*固定每一面正方體*/
+.cube5 li:nth-child(2){background-image:url(5.jpeg);background-repeat:no-repeat;background-size:25vh 25vh;-webkit-transform:rotateX(-90deg) rotateY(0deg) translateZ(12.5vh);}
+.cube5 li:nth-child(3){background-image:url(4.jpeg);background-repeat:no-repeat;background-size:25vh 25vh;-webkit-transform:rotateX(0deg)   rotateY(90deg) translateZ(12.5vh);}
+.cube5 li:nth-child(4){background-image:url(1.jpeg);background-repeat:no-repeat;background-size:25vh 25vh;-webkit-transform:rotateX(0deg)   rotateY(270deg) translateZ(12.5vh);}
+.cube5 li:nth-child(5){background-image:url(8.jpeg);background-repeat:no-repeat;background-size:25vh 25vh;-webkit-transform:rotateX(0deg)   rotateY(0deg)  translateZ(-12.5vh);}
+.cube5 li:nth-child(6){background-image:url(5.jpeg);background-repeat:no-repeat;background-size:25vh 25vh;-webkit-transform:rotateX(0deg)   rotateY(0deg)  translateZ(12.5vh) ;}
+
+.cube6 li:nth-child(1){background-image:url(8.jpeg);background-repeat:no-repeat;background-size:25vh 25vh;-webkit-transform:rotateX(90deg)  rotateY(0deg) translateZ(12.5vh);}  /*固定每一面正方體*/
+.cube6 li:nth-child(2){background-image:url(6.jpeg);background-repeat:no-repeat;background-size:25vh 25vh;-webkit-transform:rotateX(-90deg) rotateY(0deg) translateZ(12.5vh);}
+.cube6 li:nth-child(3){background-image:url(5.jpeg);background-repeat:no-repeat;background-size:25vh 25vh;-webkit-transform:rotateX(0deg)   rotateY(90deg) translateZ(12.5vh);}
+.cube6 li:nth-child(4){background-image:url(7.jpeg);background-repeat:no-repeat;background-size:25vh 25vh;-webkit-transform:rotateX(0deg)   rotateY(270deg) translateZ(12.5vh);}
+.cube6 li:nth-child(5){background-image:url(2.jpeg);background-repeat:no-repeat;background-size:25vh 25vh;-webkit-transform:rotateX(0deg)   rotateY(0deg)  translateZ(-12.5vh);}
+.cube6 li:nth-child(6){background-image:url(4.jpeg);background-repeat:no-repeat;background-size:25vh 25vh;-webkit-transform:rotateX(0deg)   rotateY(0deg)  translateZ(12.5vh) ;}
+
+.cube7 li:nth-child(1){background-image:url(5.jpeg);background-repeat:no-repeat;background-size:25vh 25vh;-webkit-transform:rotateX(90deg)  rotateY(0deg) translateZ(12.5vh);}  /*固定每一面正方體*/
+.cube7 li:nth-child(2){background-image:url(6.jpeg);background-repeat:no-repeat;background-size:25vh 25vh;-webkit-transform:rotateX(-90deg) rotateY(0deg) translateZ(12.5vh);}
+.cube7 li:nth-child(3){background-image:url(7.jpeg);background-repeat:no-repeat;background-size:25vh 25vh;-webkit-transform:rotateX(0deg)   rotateY(90deg) translateZ(12.5vh);}
+.cube7 li:nth-child(4){background-image:url(1.jpeg);background-repeat:no-repeat;background-size:25vh 25vh;-webkit-transform:rotateX(0deg)   rotateY(270deg) translateZ(12.5vh);}
+.cube7 li:nth-child(5){background-image:url(9.jpeg);background-repeat:no-repeat;background-size:25vh 25vh;-webkit-transform:rotateX(0deg)   rotateY(0deg)  translateZ(-12.5vh);}
+.cube7 li:nth-child(6){background-image:url(4.jpeg);background-repeat:no-repeat;background-size:25vh 25vh;-webkit-transform:rotateX(0deg)   rotateY(0deg)  translateZ(12.5vh) ;}
+
+.cube8 li:nth-child(1){background-image:url(6.jpeg);background-repeat:no-repeat;background-size:25vh 25vh;-webkit-transform:rotateX(90deg)  rotateY(0deg) translateZ(12.5vh);}  /*固定每一面正方體*/
+.cube8 li:nth-child(2){background-image:url(4.jpeg);background-repeat:no-repeat;background-size:25vh 25vh;-webkit-transform:rotateX(-90deg) rotateY(0deg) translateZ(12.5vh);}
+.cube8 li:nth-child(3){background-image:url(3.jpeg);background-repeat:no-repeat;background-size:25vh 25vh;-webkit-transform:rotateX(0deg)   rotateY(90deg) translateZ(12.5vh);}
+.cube8 li:nth-child(4){background-image:url(1.jpeg);background-repeat:no-repeat;background-size:25vh 25vh;-webkit-transform:rotateX(0deg)   rotateY(270deg) translateZ(12.5vh);}
+.cube8 li:nth-child(5){background-image:url(8.jpeg);background-repeat:no-repeat;background-size:25vh 25vh;-webkit-transform:rotateX(0deg)   rotateY(0deg)  translateZ(-12.5vh);}
+.cube8 li:nth-child(6){background-image:url(5.jpeg);background-repeat:no-repeat;background-size:25vh 25vh;-webkit-transform:rotateX(0deg)   rotateY(0deg)  translateZ(12.5vh) ;}
+
+.cube9 li:nth-child(1){background-image:url(4.jpeg);background-repeat:no-repeat;background-size:25vh 25vh;-webkit-transform:rotateX(90deg)  rotateY(0deg) translateZ(12.5vh);}  /*固定每一面正方體*/
+.cube9 li:nth-child(2){background-image:url(6.jpeg);background-repeat:no-repeat;background-size:25vh 25vh;-webkit-transform:rotateX(-90deg) rotateY(0deg) translateZ(12.5vh);}
+.cube9 li:nth-child(3){background-image:url(5.jpeg);background-repeat:no-repeat;background-size:25vh 25vh;-webkit-transform:rotateX(0deg)   rotateY(90deg) translateZ(12.5vh);}
+.cube9 li:nth-child(4){background-image:url(1.jpeg);background-repeat:no-repeat;background-size:25vh 25vh;-webkit-transform:rotateX(0deg)   rotateY(270deg) translateZ(12.5vh);}
+.cube9 li:nth-child(5){background-image:url(7.jpg);background-repeat:no-repeat;background-size:25vh 25vh;-webkit-transform:rotateX(0deg)   rotateY(0deg)  translateZ(-12.5vh);}
+.cube9 li:nth-child(6){background-image:url(8.jpeg);background-repeat:no-repeat;background-size:25vh 25vh;-webkit-transform:rotateX(0deg)   rotateY(0deg)  translateZ(12.5vh) ;}
+
+
+<!------------------------------------------------------------------------------------------------>
+
+
+
+
+
+
+<!------------------------------------------------------------------------------------------------>
+</style>
+   
+</head>
+<body>
+<div class="clock" style="margin:2em;"></div>
+<div class="message"></div>
+
+<script type="text/javascript">
+	var clock;
+	
+	$(document).ready(function() {
+		
+		clock = $('.clock').FlipClock({
+	        clockFace: 'MinuteCounter',
+			stop: true
+	    });
+	});
+</script>
+<div class="pic">
+	<img src="origin.png">
+</div>
+<div class="box">
+	<div class="all">
+	
+		<ul id="cube1" class = "cube1">
+			<li class="top1"></li>
+			<li class="bottom1"></li>
+			<li class="left1"></li>
+			<li class="right1"></li>
+			<li class="front1"></li>
+			<li class="back1"></li>		
+		</ul>
+		<div class="button">
+			<input id="up1" type="image" img src="up_arrow.png" onclick="document.formname.button()" style="width:3vh; height:3vh">
+			<input id="right1" type="image" img src="right_arrow.png" onclick="document.formname.button()" style="width:3vh; height:3vh">
+			<input id="left1" type="image" img src="left_arrow.png" onclick="document.formname.button()" style="width:3vh; height:3vh">
+			<input id="down1" type="image" img src="down_arrow.png" onclick="document.formname.button()" style="width:3vh; height:3vh">
+		</div>
+		
+		
+		<ul id="cube2" class = "cube2">
+			<li class="top2"></li>
+			<li class="bottom2"></li>
+			<li class="left2"></li>
+			<li class="right2"></li>
+			<li class="front2"></li>
+			<li class="back2"></li>
+		</ul>
+		<div class="button">
+			<input id="up2" type="image" img src="up_arrow.png" onclick="document.formname.button()" style="width:3vh; height:3vh">
+			<input id="right2" type="image" img src="right_arrow.png" onclick="document.formname.button()" style="width:3vh; height:3vh">
+			<input id="left2" type="image" img src="left_arrow.png" onclick="document.formname.button()" style="width:3vh; height:3vh">
+			<input id="down2" type="image" img src="down_arrow.png" onclick="document.formname.button()" style="width:3vh; height:3vh">
+		</div>
+		
+		<ul id="cube3" class = "cube3">
+			<li class="top3"></li>
+			<li class="bottom3"></li>
+			<li class="left3"></li>
+			<li class="right3"></li>
+			<li class="front3"></li>
+			<li class="back3"></li>
+		</ul>
+		<div class="button">
+			<input id="up3" type="image" img src="up_arrow.png" onclick="document.formname.button()" style="width:3vh; height:3vh">
+			<input id="right3" type="image" img src="right_arrow.png" onclick="document.formname.button()" style="width:3vh; height:3vh">
+			<input id="left3" type="image" img src="left_arrow.png" onclick="document.formname.button()" style="width:3vh; height:3vh">
+			<input id="down3" type="image" img src="down_arrow.png" onclick="document.formname.button()" style="width:3vh; height:3vh">
+		</div>
+		
+	</div>
+	<div class="all">
+		<ul id="cube4" class = "cube4">
+			<li class="top4"></li>
+			<li class="bottom4"></li>
+			<li class="left4"></li>
+			<li class="right4"></li>
+			<li class="front4"></li>
+			<li class="back4"></li>
+		</ul>
+		<div class="button">
+			<input id="up4" type="image" img src="up_arrow.png" onclick="document.formname.button()" style="width:3vh; height:3vh">
+			<input id="right4" type="image" img src="right_arrow.png" onclick="document.formname.button()" style="width:3vh; height:3vh">
+			<input id="left4" type="image" img src="left_arrow.png" onclick="document.formname.button()" style="width:3vh; height:3vh">
+			<input id="down4" type="image" img src="down_arrow.png" onclick="document.formname.button()" style="width:3vh; height:3vh">
+		</div>
+
+		<ul id="cube5" class = "cube5">
+			<li class="top5"></li>
+			<li class="bottom5"></li>
+			<li class="left5"></li>
+			<li class="right5"></li>
+			<li class="front5"></li>
+			<li class="back5"></li>
+		</ul>
+		<div class="button">
+			<input id="up5" type="image" img src="up_arrow.png" onclick="document.formname.button()" style="width:3vh; height:3vh">
+			<input id="right5" type="image" img src="right_arrow.png" onclick="document.formname.button()" style="width:3vh; height:3vh">
+			<input id="left5" type="image" img src="left_arrow.png" onclick="document.formname.button()" style="width:3vh; height:3vh">
+			<input id="down5" type="image" img src="down_arrow.png" onclick="document.formname.button()" style="width:3vh; height:3vh">
+		</div>
+		
+		<ul id="cube6" class = "cube6">
+			<li class="top6"></li>
+			<li class="bottom6"></li>
+			<li class="left6"></li>
+			<li class="right6"></li>
+			<li class="front6"></li>
+			<li class="back6"></li>
+		</ul>
+		<div class="button">
+			<input id="up6" type="image" img src="up_arrow.png" onclick="document.formname.button()" style="width:3vh; height:3vh">
+			<input id="right6" type="image" img src="right_arrow.png" onclick="document.formname.button()" style="width:3vh; height:3vh">
+			<input id="left6" type="image" img src="left_arrow.png" onclick="document.formname.button()" style="width:3vh; height:3vh">
+			<input id="down6" type="image" img src="down_arrow.png" onclick="document.formname.button()" style="width:3vh; height:3vh">
+		</div>
+		
+	</div>
+	<div class="all">
+		<ul id="cube7" class = "cube7">
+			<li class="top7"></li>
+			<li class="bottom7"></li>
+			<li class="left7"></li>
+			<li class="right7"></li>
+			<li class="front7"></li>
+			<li class="back7"></li>
+		</ul>
+		<div class="button">
+			<input id="up7" type="image" img src="up_arrow.png" onclick="document.formname.button()" style="width:3vh; height:3vh">
+			<input id="right7" type="image" img src="right_arrow.png" onclick="document.formname.button()" style="width:3vh; height:3vh">
+			<input id="left7" type="image" img src="left_arrow.png" onclick="document.formname.button()" style="width:3vh; height:3vh">
+			<input id="down7" type="image" img src="down_arrow.png" onclick="document.formname.button()" style="width:3vh; height:3vh">
+		</div>
+		
+
+		<ul id="cube8" class = "cube8">
+			<li class="top8"></li>
+			<li class="bottom8"></li>
+			<li class="left8"></li>
+			<li class="right8"></li>
+			<li class="front8"></li>
+			<li class="back8"></li>
+		</ul>
+		<div class="button">
+			<input id="up8" type="image" img src="up_arrow.png" onclick="document.formname.button()" style="width:3vh; height:3vh">
+			<input id="right8" type="image" img src="right_arrow.png" onclick="document.formname.button()" style="width:3vh; height:3vh">
+			<input id="left8" type="image" img src="left_arrow.png" onclick="document.formname.button()" style="width:3vh; height:3vh">
+			<input id="down8" type="image" img src="down_arrow.png" onclick="document.formname.button()" style="width:3vh; height:3vh">
+		</div>
+		
+		<ul id="cube9" class = "cube9">
+			<li class="top9"></li>
+			<li class="bottom9"></li>
+			<li class="left9"></li>
+			<li class="right9"></li>
+			<li class="front9"></li>
+			<li class="back9"></li>
+		</ul>
+		<div class="button">
+			<input id="up9" type="image" img src="up_arrow.png" onclick="document.formname.button()" style="width:3vh; height:3vh">
+			<input id="right9" type="image" img src="right_arrow.png" onclick="document.formname.button()" style="width:3vh; height:3vh">
+			<input id="left9" type="image" img src="left_arrow.png" onclick="document.formname.button()" style="width:3vh; height:3vh">
+			<input id="down9" type="image" img src="down_arrow.png" onclick="document.formname.button()" style="width:3vh; height:3vh">
+		</div>
+		
+	</div>
+</div>    
+
+	
+<div class="reset">
+	<input type="button" value="重置" class="reset">
+</div>	
+<p class="noShow" id="noShow">0</p>
+<p class="saveTime" id="saveTime">0</p>
+<script type="text/javascript">
+<!--
+    var cube1=document.getElementById('cube1');
+	var cube2=document.getElementById('cube2');
+	var cube3=document.getElementById('cube3');
+	var cube4=document.getElementById('cube4');
+	var cube5=document.getElementById('cube5');
+	var cube6=document.getElementById('cube6');
+	var cube7=document.getElementById('cube7');
+	var cube8=document.getElementById('cube8');
+	var cube9=document.getElementById('cube9');
+    var inputs=document.getElementsByTagName('input');
+    var x=new Array(9);
+	var y=new Array(9);
+	var z=new Array(9);
+	
+		for(var i=0;i<9;i++)
+		{
+			x[i]=0;
+			y[i]=0;
+			z[i]=0;
+		}
+		
+	
+    /////////////////////////鼠標控制
+    for(var i=0;i<inputs.length;i++){
+        inputs[i].onclick=run;
+    }
+    function run(){
+        cube1.style.webkitTransition='-webkit-transform 1s ease-out';  //設置立方體變換的屬性、持續時間、動畫類型
+		cube2.style.webkitTransition='-webkit-transform 1s ease-out'; 
+        cube3.style.webkitTransition='-webkit-transform 1s ease-out';
+		cube4.style.webkitTransition='-webkit-transform 1s ease-out';  
+		cube5.style.webkitTransition='-webkit-transform 1s ease-out'; 
+        cube6.style.webkitTransition='-webkit-transform 1s ease-out';
+		cube7.style.webkitTransition='-webkit-transform 1s ease-out';  
+		cube8.style.webkitTransition='-webkit-transform 1s ease-out'; 
+        cube9.style.webkitTransition='-webkit-transform 1s ease-out';
+		
+		
+		
+		
+		
+		if(inputs[0]==this || inputs[1]==this || inputs[2]==this || inputs[3]==this)//cube1
+		{
+			
+			if(inputs[0]==this)//上
+			{
+				x[0]+=90;
+				cube1.style.webkitTransform = "rotateX("+x[0]+"deg) rotateY("+y[0]+"deg)";
+				x[1]-=90;
+				cube2.style.webkitTransform = "rotateX("+x[1]+"deg) rotateY("+y[1]+"deg)";
+				
+			}
+			if(inputs[3]==this)//下
+			{
+				x[0]-=90;
+				cube1.style.webkitTransform = "rotateX("+x[0]+"deg) rotateY("+y[0]+"deg)";
+				x[1]+=90;
+				cube2.style.webkitTransform = "rotateX("+x[1]+"deg) rotateY("+y[1]+"deg)";
+			}
+			
+			if(inputs[1]==this)//右y+=90;
+			{	
+				var xx=x[0];
+				while(xx<0)
+					xx+=360;
+				
+				if(xx%360==180 || xx%360==270)
+					y[0]-=90;
+				else
+					y[0]+=90;
+				
+				cube1.style.webkitTransform = "rotateX("+x[0]+"deg) rotateY("+y[0]+"deg)";
+				
+			}			
+			if(inputs[2]==this)//左y-=90;
+			{	
+				var xx=x[0];
+				while(xx<0)
+					xx+=360;
+					
+				if(xx%360==180 || xx%360==270)
+					y[0]+=90;
+				else
+					y[0]-=90;
+					
+				cube1.style.webkitTransform = "rotateX("+x[0]+"deg) rotateY("+y[0]+"deg)";
+			}			
+				
+		
+		}
+		
+		if(inputs[4]==this || inputs[5]==this || inputs[6]==this || inputs[7]==this)//cube2
+		{
+			if(inputs[4]==this)//上
+			{
+				x[1]+=90;
+				cube2.style.webkitTransform = "rotateX("+x[1]+"deg) rotateY("+y[1]+"deg)";
+				x[2]-=90;
+				cube3.style.webkitTransform = "rotateX("+x[2]+"deg) rotateY("+y[2]+"deg)";
+				x[0]-=90;
+				cube1.style.webkitTransform = "rotateX("+x[0]+"deg) rotateY("+y[0]+"deg)";
+			}
+			if(inputs[7]==this)//下
+			{
+				x[1]-=90;
+				cube2.style.webkitTransform = "rotateX("+x[1]+"deg) rotateY("+y[1]+"deg)";
+				x[2]+=90;
+				cube3.style.webkitTransform = "rotateX("+x[2]+"deg) rotateY("+y[2]+"deg)";
+				x[0]+=90;
+				cube1.style.webkitTransform = "rotateX("+x[0]+"deg) rotateY("+y[0]+"deg)";
+			}			
+			if(inputs[5]==this)			//右
+			{
+				var xx=x[1];
+				while(xx<0)
+					xx+=360;
+					
+				if(xx%360==180 || xx%360==270)
+					y[1]-=90;
+				else
+					y[1]+=90;
+					
+				cube2.style.webkitTransform = "rotateX("+x[1]+"deg) rotateY("+y[1]+"deg)";
+			}
+			if(inputs[6]==this)			//左
+			{
+				var xx=x[1];
+				while(xx<0)
+					xx+=360;
+					
+				if(xx%360==180 || xx%360==270)
+					y[1]+=90;
+				else
+					y[1]-=90;
+					
+				cube2.style.webkitTransform = "rotateX("+x[1]+"deg) rotateY("+y[1]+"deg)";
+			}
+			
+		}
+		
+		if(inputs[8]==this || inputs[9]==this || inputs[10]==this || inputs[11]==this)//cube3
+		{
+			if(inputs[8]==this)//上
+			{
+				x[2]+=90;
+				cube3.style.webkitTransform = "rotateX("+x[2]+"deg) rotateY("+y[2]+"deg)";
+				x[1]-=90;
+				cube2.style.webkitTransform = "rotateX("+x[1]+"deg) rotateY("+y[1]+"deg)";
+			}
+			if(inputs[11]==this)//下
+			{
+				x[2]-=90;
+				cube3.style.webkitTransform = "rotateX("+x[2]+"deg) rotateY("+y[2]+"deg)";
+				x[1]+=90;
+				cube2.style.webkitTransform = "rotateX("+x[1]+"deg) rotateY("+y[1]+"deg)";
+			}
+			if(inputs[9]==this)			//右
+			{
+				var xx=x[2];
+				while(xx<0)
+					xx+=360;
+					
+				if(xx%360==180 || xx%360==270)
+					y[2]-=90;
+				else
+					y[2]+=90;
+					
+				cube3.style.webkitTransform = "rotateX("+x[2]+"deg) rotateY("+y[2]+"deg)";
+			}
+			if(inputs[10]==this)		//左
+			{
+				var xx=x[2];
+				while(xx<0)
+					xx+=360;
+					
+				if(xx%360==180 || xx%360==270)
+					y[2]+=90;
+				else
+					y[2]-=90;
+					
+				cube3.style.webkitTransform = "rotateX("+x[2]+"deg) rotateY("+y[2]+"deg)";
+			}
+		}
+		
+		if(inputs[12]==this || inputs[13]==this || inputs[14]==this || inputs[15]==this)//cube4
+		{
+			if(inputs[12]==this)//上
+			{
+				x[3]+=90;
+				cube4.style.webkitTransform = "rotateX("+x[3]+"deg) rotateY("+y[3]+"deg)";
+				x[4]-=90;
+				cube5.style.webkitTransform = "rotateX("+x[4]+"deg) rotateY("+y[4]+"deg)";
+			}
+			if(inputs[15]==this)//下
+			{
+				x[3]-=90;
+				cube4.style.webkitTransform = "rotateX("+x[3]+"deg) rotateY("+y[3]+"deg)";
+				x[4]+=90;
+				cube5.style.webkitTransform = "rotateX("+x[4]+"deg) rotateY("+y[4]+"deg)";
+			}
+			if(inputs[13]==this)		//右
+			{
+				var xx=x[3];
+				while(xx<0)
+					xx+=360;
+					
+				if(xx%360==180 || xx%360==270)
+					y[3]-=90;
+				else
+					y[3]+=90;
+					
+				cube4.style.webkitTransform = "rotateX("+x[3]+"deg) rotateY("+y[3]+"deg)";
+			}
+			if(inputs[14]==this)		//左
+			{
+				var xx=x[3];
+				while(xx<0)
+					xx+=360;
+					
+				if(xx%360==180 || xx%360==270)
+					y[3]+=90;
+				else
+					y[3]-=90;
+					
+				cube4.style.webkitTransform = "rotateX("+x[3]+"deg) rotateY("+y[3]+"deg)";
+			}
+		}
+		
+		if(inputs[16]==this || inputs[17]==this || inputs[18]==this || inputs[19]==this)//cube5
+		{
+			if(inputs[16]==this)//上
+			{
+				x[4]+=90;
+				cube5.style.webkitTransform = "rotateX("+x[4]+"deg) rotateY("+y[4]+"deg)";
+				x[3]-=90;
+				cube4.style.webkitTransform = "rotateX("+x[3]+"deg) rotateY("+y[3]+"deg)";
+				x[5]-=90;
+				cube6.style.webkitTransform = "rotateX("+x[5]+"deg) rotateY("+y[5]+"deg)";
+			}
+			if(inputs[19]==this)//下
+			{
+				x[4]-=90;
+				cube5.style.webkitTransform = "rotateX("+x[4]+"deg) rotateY("+y[4]+"deg)";
+				x[3]+=90;
+				cube4.style.webkitTransform = "rotateX("+x[3]+"deg) rotateY("+y[3]+"deg)";
+				x[5]+=90;
+				cube6.style.webkitTransform = "rotateX("+x[5]+"deg) rotateY("+y[5]+"deg)";
+			}
+			if(inputs[17]==this)		//右
+			{
+				var xx=x[4];
+				while(xx<0)
+					xx+=360;
+					
+				if(xx%360==180 || xx%360==270)
+					y[4]-=90;
+				else
+					y[4]+=90;
+					
+				cube5.style.webkitTransform = "rotateX("+x[4]+"deg) rotateY("+y[4]+"deg)";
+			}
+			if(inputs[18]==this)		//左
+			{
+				var xx=x[4];
+				while(xx<0)
+					xx+=360;
+					
+				if(xx%360==180 || xx%360==270)
+					y[4]+=90;
+				else
+					y[4]-=90;
+					
+				cube5.style.webkitTransform = "rotateX("+x[4]+"deg) rotateY("+y[4]+"deg)";
+			}
+			
+		}
+		
+		if(inputs[20]==this || inputs[21]==this || inputs[22]==this || inputs[23]==this)//cube6
+		{
+			if(inputs[20]==this)//上
+			{
+				x[5]+=90;
+				cube6.style.webkitTransform = "rotateX("+x[5]+"deg) rotateY("+y[5]+"deg)";
+				x[4]-=90;
+				cube5.style.webkitTransform = "rotateX("+x[4]+"deg) rotateY("+y[4]+"deg)";
+			}
+			if(inputs[23]==this)//下
+			{
+				x[5]-=90;
+				cube6.style.webkitTransform = "rotateX("+x[5]+"deg) rotateY("+y[5]+"deg)";
+				x[4]+=90;
+				cube5.style.webkitTransform = "rotateX("+x[4]+"deg) rotateY("+y[4]+"deg)";
+			}
+			if(inputs[21]==this)		//右
+			{
+				var xx=x[5];
+				while(xx<0)
+					xx+=360;
+					
+				if(xx%360==180 || xx%360==270)
+					y[5]-=90;
+				else
+					y[5]+=90;
+					
+				cube6.style.webkitTransform = "rotateX("+x[5]+"deg) rotateY("+y[5]+"deg)";
+			}
+			if(inputs[22]==this)		//左
+			{
+				var xx=x[5];
+				while(xx<0)
+					xx+=360;
+					
+				if(xx%360==180 || xx%360==270)
+					y[5]+=90;
+				else
+					y[5]-=90;
+					
+				cube6.style.webkitTransform = "rotateX("+x[5]+"deg) rotateY("+y[5]+"deg)";
+			}
+		}
+
+		if(inputs[24]==this || inputs[25]==this || inputs[26]==this || inputs[27]==this)//cube7
+		{
+			if(inputs[24]==this)//上
+			{
+				x[6]+=90;
+				cube7.style.webkitTransform = "rotateX("+x[6]+"deg) rotateY("+y[6]+"deg)";
+				x[7]-=90;
+				cube8.style.webkitTransform = "rotateX("+x[7]+"deg) rotateY("+y[7]+"deg)";
+			}
+			if(inputs[27]==this)//下
+			{
+				x[6]-=90;
+				cube7.style.webkitTransform = "rotateX("+x[6]+"deg) rotateY("+y[6]+"deg)";
+				x[7]+=90;
+				cube8.style.webkitTransform = "rotateX("+x[7]+"deg) rotateY("+y[7]+"deg)";
+			}
+			if(inputs[25]==this)		//右
+			{
+				var xx=x[6];
+				while(xx<0)
+					xx+=360;
+					
+				if(xx%360==180 || xx%360==270)
+					y[6]-=90;
+				else
+					y[6]+=90;
+					
+				cube7.style.webkitTransform = "rotateX("+x[6]+"deg) rotateY("+y[6]+"deg)";
+			}
+			if(inputs[26]==this)		//左
+			{
+				var xx=x[6];
+				while(xx<0)
+					xx+=360;
+					
+				if(xx%360==180 || xx%360==270)
+					y[6]+=90;
+				else
+					y[6]-=90;
+					
+				cube7.style.webkitTransform = "rotateX("+x[6]+"deg) rotateY("+y[6]+"deg)";
+			}
+		}
+		
+		if(inputs[28]==this || inputs[29]==this || inputs[30]==this || inputs[31]==this)//cube8
+		{
+			if(inputs[28]==this)//上
+			{
+				x[7]+=90;
+				cube8.style.webkitTransform = "rotateX("+x[7]+"deg) rotateY("+y[7]+"deg)";
+				x[6]-=90;
+				cube7.style.webkitTransform = "rotateX("+x[6]+"deg) rotateY("+y[6]+"deg)";
+				x[8]-=90;
+				cube9.style.webkitTransform = "rotateX("+x[8]+"deg) rotateY("+y[8]+"deg)";
+			}
+			if(inputs[31]==this)//下
+			{
+				x[7]-=90;
+				cube8.style.webkitTransform = "rotateX("+x[7]+"deg) rotateY("+y[7]+"deg)";
+				x[6]+=90;
+				cube7.style.webkitTransform = "rotateX("+x[6]+"deg) rotateY("+y[6]+"deg)";
+				x[8]+=90;
+				cube9.style.webkitTransform = "rotateX("+x[8]+"deg) rotateY("+y[8]+"deg)";
+			}
+			if(inputs[29]==this)		//右
+			{
+				var xx=x[7];
+				while(xx<0)
+					xx+=360;
+					
+				if(xx%360==180 || xx%360==270)
+					y[7]-=90;
+				else
+					y[7]+=90;
+					
+				cube8.style.webkitTransform = "rotateX("+x[7]+"deg) rotateY("+y[7]+"deg)";
+			}
+			if(inputs[30]==this)		//左
+			{
+				var xx=x[7];
+				while(xx<0)
+					xx+=360;
+					
+				if(xx%360==180 || xx%360==270)
+					y[7]+=90;
+				else
+					y[7]-=90;
+					
+				cube8.style.webkitTransform = "rotateX("+x[7]+"deg) rotateY("+y[7]+"deg)";
+			}
+		}
+		
+		if(inputs[32]==this || inputs[33]==this || inputs[34]==this || inputs[35]==this)//cube9
+		{
+			if(inputs[32]==this)//上
+			{
+				x[8]+=90;
+				cube9.style.webkitTransform = "rotateX("+x[8]+"deg) rotateY("+y[8]+"deg)";
+				x[7]-=90;
+				cube8.style.webkitTransform = "rotateX("+x[7]+"deg) rotateY("+y[7]+"deg)";
+			}
+			if(inputs[35]==this)//下
+			{
+				x[8]-=90;
+				cube9.style.webkitTransform = "rotateX("+x[8]+"deg) rotateY("+y[8]+"deg)";
+				x[7]+=90;
+				cube8.style.webkitTransform = "rotateX("+x[7]+"deg) rotateY("+y[7]+"deg)";
+			}
+			if(inputs[33]==this)		//右
+			{
+				var xx=x[8];
+				while(xx<0)
+					xx+=360;
+					
+				if(xx%360==180 || xx%360==270)
+					y[8]-=90;
+				else
+					y[8]+=90;
+					
+				cube9.style.webkitTransform = "rotateX("+x[8]+"deg) rotateY("+y[8]+"deg)";
+			}
+			if(inputs[34]==this)		//左
+			{
+				var xx=x[8];
+				while(xx<0)
+					xx+=360;
+					
+				if(xx%360==180 || xx%360==270)
+					y[8]+=90;
+				else
+					y[8]-=90;
+					
+				cube9.style.webkitTransform = "rotateX("+x[8]+"deg) rotateY("+y[8]+"deg)";
+			}
+		}
+        
+		
+		//--------------------當點擊重置按鈕時，迅速轉回到初始狀態。---------------------------
+		if(inputs[36]==this)
+		{
+			for(var i=0;i<9;i++)
+			{
+				x[i]=0;
+				y[i]=0;
+				z[i]=0;
+			}
+			
+			cube1.style.webkitTransition='-webkit-transform 0.1s linear';
+			cube2.style.webkitTransition='-webkit-transform 0.1s linear';
+			cube3.style.webkitTransition='-webkit-transform 0.1s linear';
+			cube4.style.webkitTransition='-webkit-transform 0.1s linear';
+			cube5.style.webkitTransition='-webkit-transform 0.1s linear';
+			cube6.style.webkitTransition='-webkit-transform 0.1s linear';
+			cube7.style.webkitTransition='-webkit-transform 0.1s linear';
+			cube8.style.webkitTransition='-webkit-transform 0.1s linear';
+			cube9.style.webkitTransition='-webkit-transform 0.1s linear';
+			
+			cube1.style.webkitTransform = "rotateX("+0+"deg) rotateY("+0+"deg)";
+			cube2.style.webkitTransform = "rotateX("+0+"deg) rotateY("+0+"deg)";
+			cube3.style.webkitTransform = "rotateX("+0+"deg) rotateY("+0+"deg)";
+			cube4.style.webkitTransform = "rotateX("+0+"deg) rotateY("+0+"deg)";
+			cube5.style.webkitTransform = "rotateX("+0+"deg) rotateY("+0+"deg)";
+			cube6.style.webkitTransform = "rotateX("+0+"deg) rotateY("+0+"deg)";
+			cube7.style.webkitTransform = "rotateX("+0+"deg) rotateY("+0+"deg)";
+			cube8.style.webkitTransform = "rotateX("+0+"deg) rotateY("+0+"deg)";
+			cube9.style.webkitTransform = "rotateX("+0+"deg) rotateY("+0+"deg)";
+			
+			
+		}  
+		//------------------------------------------------------------------------------------
+		
+		//判斷是否成功
+		var y0,y1,y2,y3,y4,y5,y6,y7,y8;
+		var x0,x1,x2,x3,x4,x5,x6,x7,x8;
+		   y0=y[0];
+		   y3=y[3];
+		   y6=y[6];
+		   y2=y[2];
+		   y5=y[5];
+		   y8=y[8];
+		   y1=y[1];
+		   y4=y[4];
+		   y7=y[7];
+		   
+		   x0=x[0];
+		   x3=x[3];
+		   x6=x[6];
+		   x2=x[2];
+		   x5=x[5];
+		   x8=x[8];
+		   x1=x[1];
+		   x4=x[4];
+		   x7=x[7];
+		   
+		   var a=0;
+    	   while(y0<0) y0+=360;
+		   while(y3<0) y3+=360;
+		   while(y6<0) y6+=360;
+		   while(y2<0) y2+=360;
+		   while(y5<0) y5+=360;
+		   while(y8<0) y8+=360;
+		   while(y1<0) y1+=360;
+		   while(y4<0) y4+=360;
+		   while(y7<0) y7+=360;
+		   
+		   while(x0<0) x0+=360;
+		   while(x3<0) x3+=360;
+		   while(x6<0) x6+=360;
+		   while(x2<0) x2+=360;
+		   while(x5<0) x5+=360;
+		   while(x8<0) x8+=360;
+		   while(x1<0) x1+=360;
+		   while(x4<0) x4+=360;
+		   while(x7<0) x7+=360;
+		   
+		   if(y0%360==270 && y2%360==270 ) a+=2,console.log(1);
+		   if(x0%360==0 && x2%360==0 ) a+=2,console.log(2);
+		   if(x2%360==0 && x3%360==0 ) a+=2,console.log(3);
+		   if(y3%360==0 && y1%360==270) a+=2,console.log(4);
+		   if(y7%360==0 && y8%360==0) a+=2,console.log(5);
+		   if(y4%360==0 && x4%360==90) a+=2,console.log(6);
+		   if(y5%360==0 && x5%360==270 ) a+=2,console.log(7);
+		   if(x6%360==0 && y6%360==90) a+=2,console.log(8);
+		   if(x7%360==90) a++,console.log(9);
+		   if(x8%360==180) a++,console.log(10);
+		   a=18;
+		   if(a==18)
+		   {
+			document.getElementById("noShow").innerHTML=1;
+			
+		    alertify.prompt("過關", function (e, str) {  
+			  if (e)
+			  {				
+				alertify.log('姓名：' + str);
+			  }				
+			  else  
+				alertify.log('你按下了 cancel');  
+			   
+			}, "未命名");
+		   }
+		   
+      	
+    }    
+   
+//-->
+</script>
+</body>
+</html>
