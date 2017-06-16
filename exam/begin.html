@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>3D Cube Game Options</title>
+		<!--切換頁面-->
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="https://apps.bdimg.com/libs/jquerymobile/1.4.5/jquery.mobile-1.4.5.min.css">
+        <script src="https://apps.bdimg.com/libs/jquery/1.10.2/jquery.min.js"></script>
+        <script src="https://apps.bdimg.com/libs/jquerymobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+		<!--切換頁面-->
+
+        <!--起始頁面-->
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+        <meta name="description" content="Slide Down Box Menu with jQuery and CSS3" />
+        <meta name="keywords" content="jquery, css3, sliding, box, menu, cube, navigation, portfolio, thumbnails"/>
+		<link rel="shortcut icon" href="../favicon.ico" type="image/x-icon"/>
+        <link rel="stylesheet" href="css/style.css" type="text/css" media="screen"/>
+		
+		<link rel="stylesheet" href="css_cube/normalize.css">
+        <link rel="stylesheet" href="css_cube/style.css" media="screen" type="text/css" />
+		
+		<script type="text/javascript" src="jquery.js"></script>
+		<script src="jquery-3.2.1.min.js" type="text/javascript"></script>
+		<!--起始頁面-->
+		
+		<!--選擇頁面-->
+		
+		<link rel="stylesheet" href="css_choose/main.css">
+        <!--<link href="http://www.jqueryscript.net/css/jquerysctipttop.css" rel="stylesheet" type="text/css">-->
+		<!--選擇頁面-->
+		
+         <!--起始頁面-->
+		 <style>
+			.content{
+				background:#333 url(bg.jpg) repeat top left;
+				font-family:Arial;
+			}
+			span.reference{
+				position:fixed;
+				left:10px;
+				bottom:10px;
+				font-size:12px;
+			}
+			span.reference a{
+				color:#aaa;
+				text-transform:uppercase;
+				text-decoration:none;
+				text-shadow:1px 1px 1px #000;
+				margin-right:30px;
+			}
+			span.reference a:hover{
+				color:#ddd;
+			}
+			ul.sdt_menu{
+				margin-top:150px;
+			}
+			h1.title{
+				text-indent:-9000px;
+				background:transparent url(title.png) no-repeat top left;
+				width:1266px;
+				height:138px;
+				left:18%;
+				top:15%;
+				position:absolute;
+			}
+			</style>
+			 <style type="text/css">
+/*重置{*/
+* { padding: 0; margin: 0; }img{border:0;}li{list-style:none;}
+/*}重置*/
+ul.aaaaa{width:200px;height:200px;margin:100px auto;position:absolute;-webkit-transform-style:preserve-3d;}    
+    /*如果在ul裏設置：-webkit-perspective:400px;-webkit-perspective-origin:0% 50%; 則會有透視、景深的效果*/
+	
+	.aaaaa  {left:550px;top:300px;}  /*正方體位置*/
+	
+	
+	.picture1  {width:200px;height:200px;left:550px;top:200px;position:absolute;}
+	.picture2  {width:200px;height:200px;left:750px;top:200px;position:absolute;}
+	.picture3  {width:200px;height:200px;left:950px;top:200px;position:absolute;}
+	.picture5  {width:200px;height:200px;left:750px;top:400px;position:absolute;}
+	.picture6  {width:200px;height:200px;left:950px;top:400px;position:absolute;}
+	.picture7  {width:200px;height:200px;left:550px;top:600px;position:absolute;}
+	.picture8  {width:200px;height:200px;left:750px;top:600px;position:absolute;}
+	.picture9  {width:200px;height:200px;left:950px;top:600px;position:absolute;}
+
+li.z{width:200px;height:200px;position:absolute;text-align:center;line-height:200px;font-size:80px;font-weight:bold;color:#fff;border-color:black;}
+li.z:nth-child(1){background-image:url(images/4.jpeg);background-repeat:no-repeat;background-size:200px 200px;-webkit-transform:rotateX(90deg)  rotateY(0deg) translateZ(100px);}  /*固定每一面正方體*/
+li.z:nth-child(2){background-image:url(images/5.jpeg);background-repeat:no-repeat;background-size:200px 200px;-webkit-transform:rotateX(-90deg) rotateY(0deg) translateZ(100px);}
+li.z:nth-child(3){background-image:url(images/6.jpeg);background-repeat:no-repeat;background-size:200px 200px;-webkit-transform:rotateX(0deg)   rotateY(90deg) translateZ(100px);}
+li.z:nth-child(4){background-image:url(images/7.jpeg);background-repeat:no-repeat;background-size:200px 200px;-webkit-transform:rotateX(0deg)   rotateY(270deg) translateZ(100px);}
+li.z:nth-child(5){background-image:url(images/8.jpeg);background-repeat:no-repeat;background-size:200px 200px;-webkit-transform:rotateX(0deg)   rotateY(0deg)  translateZ(-100px);}
+li.z:nth-child(6){background-image:url(images/9.jpeg);background-repeat:no-repeat;background-size:200px 200px;-webkit-transform:rotateX(0deg)   rotateY(0deg)  translateZ(100px) ;}
+
+
+.button{width:200px;margin:20px auto;position:absolute;z-index:1;}
+.button1{ img src="p1.png";}
+input{width:50px;height:30px;position:absolute;cursor:pointer;}
+input:nth-child(1){left:625px;top:362px;}    /*按鈕位置*//*上*/
+input:nth-child(2){left:700px;top:432px;}
+input:nth-child(3){left:555px;top:432px;}
+input:nth-child(4){left:625px;top:507px;}  /*下*/
+input:nth-child(5){left:1700px;top:700px;}   /*重新*/
+        /*****當執行下列css時，立方體無限自由旋轉******/
+/* ul{-webkit-animation:run 5s linear infinite ;}    
+@-webkit-keyframes run{
+    0%{-webkit-transform: rotateX(0deg) rotateY(0deg) }
+    100%{-webkit-transform:rotateX(360deg)  rotateY(360deg)  }
+}
+*/
+</style>
+			
+		
+		
+	    
+
+       <!--起始頁面-->
+		<script>
+		  function closeWindow(){
+             getElementById("quit");
+         if (navigator.userAgent.indexOf("MSIE") > 0) {
+              if (navigator.userAgent.indexOf("MSIE 6.0") > 0) {
+                   window.opener = null;
+                   window.close();
+              } else {
+                   window.open('', '_top');
+                   window.top.close();
+              }
+         }else if (navigator.userAgent.indexOf("Firefox") > 0) {
+              window.location.href = 'about:blank ';
+         } else {
+              window.opener = null;
+              window.open('', '_self', '');
+              window.close();
+         }
+        }
+		</script>
+		
+        
+    </head>
+
+    <body>
+	    <!--起始頁面-->
+		<div class="content" id = "pageone" data-role="page">
+			    	<h1 class="title">3D Cube Game</h1>
+					<ul id="sdt_menu" class="sdt_menu">
+				<li>
+					<a data-ajax="false" href="cube/new_1.html" data-transition="flow">
+						<img src="images/2.jpg" alt=""/>
+						<span class="sdt_active"></span>
+						<span class="sdt_wrap">
+							<span class="sdt_link">About us</span>
+							<span class="sdt_descr">Get to know us</span>
+						</span>
+					</a>
+				</li>
+				<li>
+					<a data-ajax="false" href="choose/choose.html"  data-transition="flow">
+						<img src="images/1.jpg" alt=""/>
+						<span class="sdt_active"></span>
+						<span class="sdt_wrap">
+							<span class="sdt_link" >Options</span>
+							<span class="sdt_descr">Which levels do you like</span>
+						</span>
+					</a>
+				</li>
+				<li>
+					<a data-ajax="false" href="book/index.html" data-transition="flow">
+						<img src="images/3.jpg" alt=""/>
+						<span class="sdt_active"></span>
+						<span class="sdt_wrap">
+							<span class="sdt_link">game rules</span>
+							<span class="sdt_descr">understanding</span>
+						</span>
+					</a>
+				</li>
+				<li>
+					<a href="#try" data-transition="flow">
+						<img src="images/4.jpg" alt=""/>
+						<span class="sdt_active"></span>
+						<span class="sdt_wrap">
+							<span class="sdt_link">try</span>
+							<span class="sdt_descr">Go~Go~Go~</span>
+						</span>
+					</a>
+				</li>
+				<!--<li>
+					<a onClick="window.close();">
+					
+						<img src="images/5.jpg" alt=""/>
+						<span class="sdt_active"></span>
+						<span class="sdt_wrap">
+							<span class="sdt_link">Exit</span>
+							<span class="sdt_descr">are you sure you want to quit?</span>
+						</span>
+					</a>
+				</li>
+				<li>
+					<a href="#">
+						<img src="images/6.jpg" alt=""/>
+						<span class="sdt_active"></span>
+						<span class="sdt_wrap">
+							<span class="sdt_link">Previous page</span>
+							<span class="sdt_descr"></span>
+						</span>
+					</a>
+					<!--<div class="sdt_box">
+						<a href="#">Job Board Website</a>
+						<a href="#">Shopping Cart</a>
+						<a href="#">Interactive Maps</a>
+					</div>
+				</li>-->
+			</ul>
+			
+			 <div>
+            <span class="reference">
+            </span>
+		</div>
+				
+	     <div style="text-align:center;clear:both;margin-left:-120px;margin-top:-120px">
+        <script src="/gg_bd_ad_720x90.js" type="text/javascript"></script>
+        <script src="/follow.js" type="text/javascript"></script>
+        </div>
+        <p style="margin-top:80px"></p>
+        <cube>
+        <back></back>
+        <bottom></bottom>
+        <front></front>
+        <left></left>
+        <right></right>
+        <top></top>
+        </cube>
+		
+
+         <script src='jquery.js'></script>
+		 
+		 <!-- The JavaScript -->
+        <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"></script>
+		<script type="text/javascript" src="jquery.easing.1.3.js"></script>
+        <script type="text/javascript">
+            $(function() {
+				/**
+				* for each menu element, on mouseenter, 
+				* we enlarge the image, and show both sdt_active span and 
+				* sdt_wrap span. If the element has a sub menu (sdt_box),
+				* then we slide it - if the element is the last one in the menu
+				* we slide it to the left, otherwise to the right
+				*/
+                $('#sdt_menu > li').bind('mouseenter',function(){
+					var $elem = $(this);
+					$elem.find('img')
+						 .stop(true)
+						 .animate({
+							'width':'170px',
+							'height':'170px',
+							'left':'0px'
+						 },400,'easeOutBack')
+						 .andSelf()
+						 .find('.sdt_wrap')
+					     .stop(true)
+						 .animate({'top':'140px'},500,'easeOutBack')
+						 .andSelf()
+						 .find('.sdt_active')
+					     .stop(true)
+						 .animate({'height':'170px'},300,function(){
+						var $sub_menu = $elem.find('.sdt_box');
+						if($sub_menu.length){
+							var left = '170px';
+							if($elem.parent().children().length == $elem.index()+1)
+								left = '-170px';
+							$sub_menu.show().animate({'left':left},200);
+						}	
+					});
+				}).bind('mouseleave',function(){
+					var $elem = $(this);
+					var $sub_menu = $elem.find('.sdt_box');
+					if($sub_menu.length)
+						$sub_menu.hide().css('left','0px');
+					
+					$elem.find('.sdt_active')
+						 .stop(true)
+						 .animate({'height':'0px'},300)
+						 .andSelf().find('img')
+						 .stop(true)
+						 .animate({
+							'width':'0px',
+							'height':'0px',
+							'left':'85px'},400)
+						 .andSelf()
+						 .find('.sdt_wrap')
+						 .stop(true)
+						 .animate({'top':'25px'},500);
+				});
+            });
+        </script>
+		</div>
+	    </div>
+       
+		<!--關於我們-->
+		 <div data-role="page" id="pagetwo">
+		 
+            <a href="#pageone" data-transition="flow">返回第一个页面</a>
+			
+       </div> 
+	   
+	   <!--規則頁面-->
+	   <div data-role="page" id="rules" class = "bodyyy">
+            <a href="#pageone" data-transition="flow">返回第一个页面@@</a>
+			
+      </div>
+   
+	   
+	   <!--嘗試頁面-->
+	   <div data-role="page" id="try" class = "bodyyy">
+       
+            <a href="#pageone" data-transition="flow">返回前頁</a>
+			
+			<ul id="ul" class = "aaaaa">
+              <li class="z"></li>
+              <li class="z"></li>
+              <li class="z"></li>
+              <li class="z"></li>
+              <li class="z"></li>
+              <li class="z"></li>
+            </ul>
+	        <img src = "images/1.jpeg" class = "picture1">
+	        <img src = "images/2.jpeg" class = "picture2">
+			<img src = "images/3.jpeg" class = "picture3">
+			<img src = "images/5.jpeg" class = "picture5">
+			<img src = "images/6.jpeg" class = "picture6">
+			<img src = "images/7.jpeg" class = "picture7">
+			<img src = "images/8.jpeg" class = "picture8">
+			<img src = "images/9.jpeg" class = "picture9">
+           <div class="button">
+		  <input type="image" img src="images/up_arrow.png" onclick="document.formname.button()" style="width:45px; height:45px">
+		  <input type="image" img src="images/right_arrow.png" onclick="document.formname.button()" style="width:45px; height:45px">
+		  <input type="image" img src="images/left_arrow.png" onclick="document.formname.button()" style="width:45px; height:45px">
+		  <input type="image" img src="images/down_arrow.png" onclick="document.formname.button()" style="width:45px; height:45px">
+         <!-- <input type="button" value="重置">-->
+       </div> 
+<script type="text/javascript">
+<!--
+    var ul=document.getElementById('ul');
+	var ull=document.getElementById('ull');
+	var ul2=document.getElementById('ul2');
+    var inputs=document.getElementsByTagName('input');
+    var x=0,y=0;
+    /////////////////////////鼠標控制
+    for(var i=0;i<inputs.length;i++){
+        inputs[i].onclick=run;
+    }
+    function run(){
+        ul.style.webkitTransition='-webkit-transform 1s linear';  //設置立方體變換的屬性、持續時間、動畫類型
+        if(inputs[0]==this){x+=90;}  //重置
+        if(inputs[1]==this){y+=90;}
+        if(inputs[2]==this){y-=90;}
+        if(inputs[3]==this){x-=90;}
+        if(inputs[4]==this){x=0;y=0; ul.style.webkitTransition='-webkit-transform 0.1s linear';}    //當點擊重置按鈕時，迅速轉回到初始狀態。
+        ul.style.webkitTransform = "rotateX("+x+"deg) rotateY("+y+"deg)";    //變換效果（沿X軸和Y軸旋轉）
+		//-8
+		
+		var xx=x;
+		while(xx<0)
+			xx+=360;
+			
+		var yy=y;
+		while(yy<0)
+			yy+=360;
+		
+		if(xx%360==270) 
+		{
+		     if(yy%360==0) window.alert("成功了");console.log("2");
+    }    }
+    
+</script>
+       </div> 
+
+ 
+		
+		
+    </body>
+</html>
