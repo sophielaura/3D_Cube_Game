@@ -7,7 +7,7 @@
 	<link href="https://sophielaura.github.io/level_1/alertify.default.css" rel="stylesheet">  
 	<script src="https://sophielaura.github.io/level_1/alertify.min.js"></script>	
 		<style>
-		/*重置{*/
+	/*重置{*/
 * { padding: 0; margin: 0; }img{border:0;}li{list-style:none;}
 /*}重置*/
 
@@ -18,12 +18,12 @@
 					 margin-right:6vh;}
 					 
 	input{width:50px;height:30px;cursor:pointer;}
-	.button input:nth-child(1){right:13vh;top:-38vh;position:absolute;}    /*按鈕位置(上)*/
-	.button input:nth-child(2){right:-2vh;top:-22.75vh;position:absolute;}				/*右*/
-	.button input:nth-child(3){right:27vh;top:-22.75vh;position:absolute;}				/*左*/
-	.button input:nth-child(4){right:13vh;top:-9vh;position:absolute;}			/*下*/
+	.button input:nth-child(1){right:-25vh;top:-34.5vh;position:absolute;}    /*按鈕位置(上)*/
+	.button input:nth-child(2){right:-35vh;top:-24.5vh;position:absolute;}				/*右*/
+	.button input:nth-child(3){right:-5vh;top:-24.5vh;position:absolute;}				/*左*/
+	.button input:nth-child(4){right:-25vh;top:-5.5vh;position:absolute;}			/*下*/
 	
-	.button{width:200px;margin:20px auto;position:absolute;}
+	.button{margin-right:6vh;position:absolute;}
 	
 	
 	.reset input{width:10vh;height:5vh;left:48%;top:90vh;font-size:3vh;position:absolute;}
@@ -71,6 +71,9 @@ ul {width:36vh;height:36vh;-webkit-transform-style:preserve-3d;}
 .cube4 li:nth-child(5){background-image:url(2.jpeg);background-repeat:no-repeat;background-size:36vh 36vh;-webkit-transform:rotateX(0deg)   rotateY(0deg)  translateZ(-18vh);}
 .cube4 li:nth-child(6){background-image:url(2.jpeg);background-repeat:no-repeat;background-size:36vh 36vh;-webkit-transform:rotateX(0deg)   rotateY(0deg)  translateZ(18vh) ;}
 
+.noShow  {display:none;}
+.saveTime  {display:none;}
+body {background:#ccc url(wood.jpg) repeat top left;}
 
 </style>
 				
@@ -107,10 +110,10 @@ ul {width:36vh;height:36vh;-webkit-transform-style:preserve-3d;}
 			<li class="back1"></li>		
 		</ul>
 		<div class="button">
-			<input id="up1" type="image" img src="up_arrow.png" onclick="document.formname.button()" style="width:4vh; height:4vh">
-			<input id="right1" type="image" img src="right_arrow.png" onclick="document.formname.button()" style="width:4vh; height:4vh">
-			<input id="left1" type="image" img src="left_arrow.png" onclick="document.formname.button()" style="width:4vh; height:4vh">
-			<input id="down1" type="image" img src="down_arrow.png" onclick="document.formname.button()" style="width:4vh; height:4vh">
+			<input id="up1" type="image" img src="up_arrow.png" onclick="document.formname.button()" style="width:14vh; height:4vh">
+			<input id="right1" type="image" img src="right_arrow.png" onclick="document.formname.button()" style="width:4vh; height:14vh">
+			<input id="left1" type="image" img src="left_arrow.png" onclick="document.formname.button()" style="width:4vh; height:14vh">
+			<input id="down1" type="image" img src="down_arrow.png" onclick="document.formname.button()" style="width:14vh; height:4vh">
 		</div>
 		
 		<ul id="cube2" class = "cube2">
@@ -122,10 +125,10 @@ ul {width:36vh;height:36vh;-webkit-transform-style:preserve-3d;}
 			<li class="back2"></li>
 		</ul>
 		<div class="button">
-			<input id="up2" type="image" img src="up_arrow.png" onclick="document.formname.button()" style="width:4vh; height:4vh">
-			<input id="right2" type="image" img src="right_arrow.png" onclick="document.formname.button()" style="width:4vh; height:4vh">
-			<input id="left2" type="image" img src="left_arrow.png" onclick="document.formname.button()" style="width:4vh; height:4vh">
-			<input id="down2" type="image" img src="down_arrow.png" onclick="document.formname.button()" style="width:4vh; height:4vh">
+			<input id="up2" type="image" img src="up_arrow.png" onclick="document.formname.button()" style="width:14vh; height:4vh">
+			<input id="right2" type="image" img src="right_arrow.png" onclick="document.formname.button()" style="width:4vh; height:14vh">
+			<input id="left2" type="image" img src="left_arrow.png" onclick="document.formname.button()" style="width:4vh; height:14vh">
+			<input id="down2" type="image" img src="down_arrow.png" onclick="document.formname.button()" style="width:14vh; height:4vh">
 		</div>
 	</div>	
 	<div class="all">
@@ -138,10 +141,10 @@ ul {width:36vh;height:36vh;-webkit-transform-style:preserve-3d;}
 			<li class="back3"></li>
 		</ul>
 		<div class="button">
-			<input id="up3" type="image" img src="up_arrow.png" onclick="document.formname.button()" style="width:4vh; height:4vh">
-			<input id="right3" type="image" img src="right_arrow.png" onclick="document.formname.button()" style="width:4vh; height:4vh">
-			<input id="left3" type="image" img src="left_arrow.png" onclick="document.formname.button()" style="width:4vh; height:4vh">
-			<input id="down3" type="image" img src="down_arrow.png" onclick="document.formname.button()" style="width:4vh; height:4vh">
+			<input id="up3" type="image" img src="up_arrow.png" onclick="document.formname.button()" style="width:14vh; height:4vh">
+			<input id="right3" type="image" img src="right_arrow.png" onclick="document.formname.button()" style="width:4vh; height:14vh">
+			<input id="left3" type="image" img src="left_arrow.png" onclick="document.formname.button()" style="width:4vh; height:14vh">
+			<input id="down3" type="image" img src="down_arrow.png" onclick="document.formname.button()" style="width:14vh; height:4vh">
 		</div>
 	
 		<ul id="cube4" class = "cube4">
@@ -153,10 +156,10 @@ ul {width:36vh;height:36vh;-webkit-transform-style:preserve-3d;}
 			<li class="back4"></li>
 		</ul>
 		<div class="button">
-			<input id="up4" type="image" img src="up_arrow.png" onclick="document.formname.button()" style="width:4vh; height:4vh">
-			<input id="right4" type="image" img src="right_arrow.png" onclick="document.formname.button()" style="width:4vh; height:4vh">
-			<input id="left4" type="image" img src="left_arrow.png" onclick="document.formname.button()" style="width:4vh; height:4vh">
-			<input id="down4" type="image" img src="down_arrow.png" onclick="document.formname.button()" style="width:4vh; height:4vh">
+			<input id="up4" type="image" img src="up_arrow.png" onclick="document.formname.button()" style="width:14vh; height:4vh">
+			<input id="right4" type="image" img src="right_arrow.png" onclick="document.formname.button()" style="width:4vh; height:14vh">
+			<input id="left4" type="image" img src="left_arrow.png" onclick="document.formname.button()" style="width:4vh; height:14vh">
+			<input id="down4" type="image" img src="down_arrow.png" onclick="document.formname.button()" style="width:14vh; height:4vh">
 		</div>
 	</div>
 </div> 
@@ -384,28 +387,19 @@ ul {width:36vh;height:36vh;-webkit-transform-style:preserve-3d;}
 		   if(x1%360==90) a+=1,console.log(6);
 		   if(x2%360==90) a+=1,console.log(7);
 		   if(x3%360==90) a+=1,console.log(8);
-		   a=8;
+		
 		   if(a==8)
 		   {
 			
 			document.getElementById("noShow").innerHTML=1;	 
 			
-			alertify.prompt("過關", function (e, str) {  
-			  if (e)
-			  {				
-				alertify.log('姓名：' + str);
-			  }				
-			  else  
-				alertify.log('你按下了 cancel');  
+			alertify.alert("過關");
 			   
-			}, "未命名"); 
-			   /*var name=prompt("成功~~請輸入您的名字","");
-				$(function(){
-						$.post('input_finish.php',{name:name,t:second});
-						});*/
 				
 			}
     }    
+	
+	
    
 //-->
 </script>   
